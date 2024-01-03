@@ -10,8 +10,12 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('/test')
+  @Get('/homepage')
   gettest(): string {
-    return 'test api call';
+    return "[
+      {
+        "item" : "item 1"
+      }
+    ]";
   }
 }

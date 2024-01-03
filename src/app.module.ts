@@ -4,13 +4,15 @@ import { AppService } from './app.service';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
-// npm install --save @nestjs/serve-static
+
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
+    // to expose static web page -- npm install --save @nestjs/serve-static
+    ServeStaticModule.forRoot({ 
       rootPath: join(__dirname,'..', 'View'),
       exclude:['/api/(.*)'],
     }),
+    
   ],
   controllers: [AppController],
   providers: [AppService],
