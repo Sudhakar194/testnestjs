@@ -100,7 +100,7 @@
           <script>
             console.log('script');
             $(document).ready(function(){
-              console.log('this is run on page load');
+              console.log('success request');
               $.ajax({
                 type: 'get',
                 url: 'http://localhost:3000/api/resultList1',
@@ -112,7 +112,10 @@
                   });
                 },
                 error: function(xhr, status, error){
-
+                  console.log('error in request');
+                },
+                complete: function(){
+                  console.log('complete request');
                 }
               })  
 
