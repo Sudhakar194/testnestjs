@@ -9,6 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+  
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -99,7 +101,21 @@
             console.log('script');
             $(document).ready(function(){
               console.log('this is run on page load');
-                
+              $.ajax({
+                type: 'get',
+                url: 'http://localhost:3000/api/resultList1',
+                dataType: 'json',
+                success: function(result){
+                  console.log('success'+result);
+                  result.forEach(element => {
+                    $('#resultList').append('<li>' + element.itemId + '</li>');
+                  });
+                },
+                error: function(xhr, status, error){
+
+                }
+              })  
+
               });
           </script>
     

@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Response } from 'express';
 
 @Controller()
 export class AppController {
@@ -25,4 +26,10 @@ export class AppController {
   getResultList() {
     return this.resultList;
   }
+
+  @Get('/ResultList1')
+  getResultList1(@Res() response: Response) {
+      response.status(200).send(this.resultList);
+  }
+
 }
