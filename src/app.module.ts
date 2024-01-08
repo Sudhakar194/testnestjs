@@ -8,7 +8,9 @@ import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { User } from './typeorm/entities/user';
 import { Product } from './typeorm/entities/product';
-import { DataSource } from 'typeorm';
+import * as fs from 'fs';
+import entities from './typeorm';
+// import { DataSource } from 'typeorm';
 
 
 @Module({
@@ -26,11 +28,16 @@ import { DataSource } from 'typeorm';
       port: 3306,
       username : 'root',
       password: 'admin',
-      entities: [User,Product],
+      database: 'testnodejs',
+      //entities: [User,Product],
+      entities: entities, //  added all entities in index.ts
       synchronize: true, // Setting synchronize: true shouldn't be used in production - otherwise you can lose production data.
       retryAttempts: 1, //default 10, Number of attempts to connect to the database
       retryDelay: 1000, //default 3000 , Delay between connection retry attempts (ms) 
-      autoLoadEntities: false // default false , If true, entities will be loaded automatically
+      autoLoadEntities: false, // default false , If true, entities will be loaded automatically
+      // ssl: {
+      //   ca: fs.readFileSync(process.env.SSL_CA_CERTIFICATES),
+      // },
     }),
 
     ProductModule,
@@ -41,6 +48,5 @@ import { DataSource } from 'typeorm';
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private dataSource:DataSource) {
-  }
+//  constructor(private dataSource:DataSource) {  }
 }
