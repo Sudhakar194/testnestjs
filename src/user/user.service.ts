@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectConnection, InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { User as UserEntity } from 'src/typeorm/entities/user';
 import { Repository } from 'typeorm';
 import { UserDTO } from './user.dto';
@@ -9,6 +9,12 @@ export class UserService {
     constructor(
         @InjectRepository(UserEntity)
         private userRepository: Repository<UserEntity>,
+
+        //'@InjectConnection()' is deprecated.
+        //'Connection' is deprecated.
+        @InjectDataSource()
+        private connection: Conne
+
     ){}
 
     getUserList(): Promise<UserDTO[]>{

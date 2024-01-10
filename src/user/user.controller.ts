@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Res, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Res, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Response } from 'express';
 import { UserService } from './user.service';
 import { UserDTO } from './user.dto';
@@ -19,6 +19,13 @@ export class UserController {
     addUser(@Body() userDto:UserDTO){
       console.log('inside user controller - adduser');
       return this.userServices.addUser(userDto);
+    }
+
+
+    @Get('getUserListById/:id')
+    getUserListById(@Param(':id') id:string){
+      console.log('inside user controller - getUserListById');
+      //return this.userServices.getUserListById(userDto);
     }
 
 }
