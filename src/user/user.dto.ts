@@ -1,7 +1,6 @@
 import { IsEmail, IsNotEmpty, MaxLength, MinLength } from "class-validator";
 
-// {
-    
+// {    
 //     "firstname": "sudhakar",
 //     "lastname": "m",
 //     "fullname": "sudhakar reddy",

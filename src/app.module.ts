@@ -7,7 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { User } from './typeorm/entities/user';
-import { Product } from './typeorm/entities/product';
+// import { Product } from './typeorm/entities/product';
 import * as fs from 'fs';
 import entities from './typeorm';
 // import { DataSource } from 'typeorm';

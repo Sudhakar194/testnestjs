@@ -3,7 +3,8 @@ import { Response } from 'express';
 import { UserService } from './user.service';
 import { UserDTO } from './user.dto';
 
-@Controller('user')
+@Controller('user') // http path
+//@Controller()
 export class UserController {
 
     constructor(private readonly userServices: UserService){}
@@ -21,11 +22,10 @@ export class UserController {
       return this.userServices.addUser(userDto);
     }
 
-
     @Get('getUserListById/:id')
-    getUserListById(@Param(':id') id:string){
-      console.log('inside user controller - getUserListById');
-      //return this.userServices.getUserListById(userDto);
+    getUserListById(@Param('id') id:string){
+      console.log('inside user controller - getUserListById ' + id);
+      return this.userServices.getUserListById(id);
     }
 
 }

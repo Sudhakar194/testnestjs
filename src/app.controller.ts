@@ -32,4 +32,15 @@ export class AppController {
       response.status(200).send(this.resultList);
   }
 
+
+  
+  // calling internal database but using http localhost 
+  @Get('/getProductList')
+  getProductList(@Res() response: Response) {
+      response.status(200).send(this.resultList);
+  }
+  
+
+
+
 }
