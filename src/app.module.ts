@@ -10,6 +10,7 @@ import { User } from './typeorm/entities/user';
 // import { Product } from './typeorm/entities/product';
 import * as fs from 'fs';
 import entities from './typeorm';
+import { HttpModule } from '@nestjs/axios';
 // import { DataSource } from 'typeorm';
 
 
@@ -43,6 +44,7 @@ import entities from './typeorm';
     ProductModule,
     UserModule,
     
+    HttpModule
   ],
   controllers: [AppController],
   providers: [AppService],
