@@ -36,12 +36,20 @@ export class AppController {
   
   // calling internal database but using http localhost 
   // npm i --save @nestjs/axios axios
-  @Get('/getProductList_Http')
-  getProductList() {
-      return this.appService.getProductList();
+  @Get('/getProductList_Http1')
+  getProductList1() {
+      return this.appService.getProductList1();
+  }
+
+  @Get('/getProductList_Http2')
+  getProductList2() {
+      return this.appService.getProductList2();
   }
   
-
+  @Get('/getProductList_Http3')
+  getProductList3() {
+      return this.appService.getProductList2();
+  }
 
 
 }

@@ -10,18 +10,16 @@ export class ProductService {
         private dataSource : DataSource,
     ){}
 
-    getProductList(){
-        const qry = 'select * from product_info';
-        console.log('qry: ' + qry)
-        const qryRes =  this.dataSource.query(qry)
-        console.log('qry: ' + qryRes)
+    getProductList(){       
         return this.databaseCall();
     }
 
     async databaseCall(){
-        const qry = 'select * from product_info';
-        console.log('qry : ' + qry)
-        return this.dataSource.query(qry)
+        const qryRes = await this.dataSource.query('select * from product_info')
+        console.log('qryRes ' + (typeof qryRes))
+        console.log(JSON.stringify(qryRes))  // user await otherwise returning empty object
+       // console.log(JSON.parse(qryRes))
+        return  JSON.stringify(qryRes)
      }
 
 
